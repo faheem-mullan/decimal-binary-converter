@@ -3,14 +3,11 @@ const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
 const decimalToBinary = (input) => {
-    const inputs=[];
-    const remainders=[];
-    const quotients=[];
-
-  while(input>0){
+  if (input === 0) {
+    return "";
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
-  input.value 
-  result.innerText=binary;
 };
 
 const checkUserInput = () => {
@@ -23,7 +20,7 @@ const checkUserInput = () => {
     return;
   }
 
-  decimalToBinary(parseInt(numberInput.value));
+  result.textContent = decimalToBinary(parseInt(numberInput.value));
   numberInput.value = "";
 };
 
